@@ -1,0 +1,184 @@
+/* src/App.css - ESTILOS GLOBALES Y BASE PARA LA APLICACIÓN */
+
+/* Reseteo básico y box-sizing para consistencia */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f7f6; /* Un gris muy claro para el fondo */
+    -webkit-font-smoothing: antialiased; /* Suaviza las fuentes en Webkit */
+    text-rendering: optimizeLegibility; /* Mejora el renderizado de texto */
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 20px auto; /* Centra el contenido principal */
+    padding: 0 20px; /* Padding a los lados */
+  }
+  
+  /* Títulos Globales */
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+    color: #2c3e50; /* Un azul oscuro/negro suave */
+  }
+  
+  h2 {
+    font-size: 2em; /* Ligeramente más pequeño */
+    text-align: center;
+    margin-top: 25px; /* Menos margen superior */
+    margin-bottom: 25px; /* Menos margen inferior */
+    position: relative;
+    padding-bottom: 8px; /* Menos padding */
+  }
+  
+  h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 60px;
+    background-color: #3498db; /* Azul vibrante */
+    border-radius: 2px;
+  }
+  
+  /* Estilos de Botones Globales (Primario, Secundario, Peligro) */
+  button, .button, .hero-button {
+    background-color: #3498db; /* Azul Primario */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none; /* Para enlaces con estilo de botón */
+    display: inline-block; /* Para enlaces */
+    text-align: center;
+  }
+  
+  button:hover:not(:disabled), .button:hover:not(:disabled), .hero-button:hover:not(:disabled) {
+    background-color: #2980b9; /* Azul más oscuro al pasar el ratón */
+    transform: translateY(-2px); /* Pequeño efecto de elevación */
+  }
+  
+  button:disabled, .button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  .button.secondary {
+    background-color: #6c7a89; /* Gris azulado */
+  }
+  
+  .button.secondary:hover:not(:disabled) {
+    background-color: #556270;
+  }
+  
+  .button.danger {
+    background-color: #e74c3c; /* Rojo de peligro */
+  }
+  
+  .button.danger:hover:not(:disabled) {
+    background-color: #c0392b;
+  }
+  
+  /* Estilos de Formulario Globales */
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 6px; /* Menos margen inferior */
+    font-weight: bold;
+    color: #555;
+    font-size: 0.95em; /* Ligeramente más pequeño */
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="password"],
+  .form-group input[type="email"],
+  .form-group input[type="number"],
+  .form-group input[type="date"],
+  .form-group textarea {
+    width: 100%;
+    padding: 9px 10px; /* Menos padding */
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 0.95em; /* Ligeramente más pequeño */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+    outline: none;
+  }
+  
+  /* Contenedores de Tarjetas/Paneles */
+  .card-panel {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* Menos padding */
+    margin-bottom: 20px; /* Menos margen inferior */
+  }
+  
+  /* Mensajes de Error/Carga */
+  .loading-container, .error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px; /* Menos altura mínima */
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .error-message-large {
+    color: #e74c3c; /* Rojo de error */
+    font-size: 1.6em; /* Ligeramente más pequeño */
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  .error-container p:last-child {
+      color: #777;
+  }
+  
+  /* Spinner */
+  .spinner {
+    border: 6px solid rgba(0, 0, 0, 0.1);
+    border-top: 6px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Toastify Customization */
+  .Toastify__toast-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.9em;
+  }
+  .Toastify__toast--success { background-color: #28a745; }
+  .Toastify__toast--error { background-color: #e74c3c; }
+  .Toastify__toast--warning { background-color: #f39c12; }
+  .Toastify__toast--info { background-color: #3498db; }

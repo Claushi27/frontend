@@ -1,0 +1,81 @@
+/* src/pages/PaymentResultPage.css */
+
+.payment-result-container {
+  padding: 50px; /* Más padding */
+  max-width: 600px;
+  margin: 80px auto;
+  border-radius: 10px; /* Más redondeado */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15); /* Sombra más pronunciada */
+  text-align: center;
+  color: white;
+}
+
+.payment-result-container.success {
+  background-color: #2ecc71; /* Verde */
+}
+
+.payment-result-container.error {
+  background-color: #e74c3c; /* Rojo */
+}
+
+.payment-result-container.warning {
+  background-color: #f39c12; /* Naranja */
+  color: white; /* Asegura texto blanco */
+}
+
+.payment-result-container.info {
+  background-color: #3498db; /* Azul */
+}
+
+.payment-result-container h2 {
+  margin-top: 0;
+  font-size: 2.5em; /* Título más grande */
+  margin-bottom: 25px;
+  color: white; /* Asegura color blanco */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.payment-result-container .message {
+  font-size: 1.2em;
+  margin-bottom: 25px;
+}
+
+.payment-result-container p {
+  margin: 10px 0;
+  font-size: 1.05em;
+}
+
+.payment-result-container strong {
+  font-weight: bold;
+}
+
+.payment-result-container .actions {
+  margin-top: 40px; /* Más espacio */
+}
+
+.payment-result-container .button {
+  padding: 10px 25px; /* Más padding */
+  margin: 0 10px;
+  border-radius: 50px; /* Más redondeado */
+  font-weight: bold;
+  font-size: 1.05em;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra al botón */
+}
+
+.payment-result-container .button.primary {
+  background-color: rgba(255, 255, 255, 0.25); /* Transparente blanco */
+  color: white;
+}
+
+.payment-result-container .button.primary:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.payment-result-container .button.secondary {
+  background-color: white;
+  color: #333;
+}
+
+.payment-result-container .button.secondary:hover {
+  background-color: #f0f0f0;
+}

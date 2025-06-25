@@ -1,0 +1,107 @@
+.admin-login-container {
+    padding: 30px;
+    max-width: 400px;
+    margin: 50px auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background-color: #fff;
+    text-align: center;
+  }
+  
+  .admin-login-container h2 {
+    color: #333;
+    margin-bottom: 25px;
+  }
+  
+  .admin-login-form .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .admin-login-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .admin-login-form input[type="text"],
+  .admin-login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Para que padding no aumente el ancho total */
+  }
+  
+  .admin-login-form button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 20px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .admin-login-form button[type="submit"]:hover:not(:disabled) {
+    background-color: #0056b3;
+  }
+  
+  .admin-login-form button[type="submit"]:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .error-message {
+    color: #dc3545;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  /* src/pages/AdminLoginPage.css */
+
+.admin-login-container {
+    padding: 40px;
+    max-width: 450px; /* Un poco más ancho */
+    margin: 80px auto; /* Centra más la página */
+    /* Card panel styles handled by .card-panel global */
+    text-align: center;
+  }
+  
+  .admin-login-container h2 {
+    margin-bottom: 35px;
+    color: #2c3e50;
+    /* h2 styles handled by global */
+  }
+  
+  .admin-login-form .form-group {
+    margin-bottom: 20px; /* Más espacio entre campos */
+    /* label, input styles handled by global */
+  }
+  
+  .admin-login-form button[type="submit"] {
+    margin-top: 30px; /* Más espacio al botón */
+    padding: 12px 25px; /* Más padding */
+    font-size: 1.1em;
+    border-radius: 50px; /* Botón más redondeado */
+    /* button styles handled by global */
+    background-color: #3498db;
+  }
+  
+  .admin-login-form button[type="submit"]:hover:not(:disabled) {
+    background-color: #2980b9;
+  }
+  
+  .error-message {
+    color: #e74c3c;
+    margin-top: 15px;
+    font-weight: bold;
+    background-color: #ffe8e8;
+    border: 1px solid #e74c3c;
+    padding: 10px;
+    border-radius: 5px;
+  }
