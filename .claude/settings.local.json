@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run redirect-server:*)"
+      "Bash(npm run redirect-server:*)",
+      "Read(//c/Proyectos/**)"
     ],
     "deny": [],
     "ask": []
