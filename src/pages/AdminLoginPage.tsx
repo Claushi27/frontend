@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '@/hooks';
 import { loginUser } from '@/store/slices/authSlice';
 import { Card, CardHeader, CardTitle, CardContent, Button, Input } from '@/components/ui';
@@ -70,6 +70,28 @@ const AdminLoginPage: React.FC = () => {
                 Iniciar Sesión
               </Button>
             </form>
+
+            <div className="mt-6 text-center">
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-gray-300" />
+                </div>
+                <div className="relative flex justify-center text-sm">
+                  <span className="px-2 bg-white text-gray-500">
+                    ¿No tienes cuenta?
+                  </span>
+                </div>
+              </div>
+
+              <div className="mt-4">
+                <Link
+                  to={ROUTES.REGISTER}
+                  className="text-primary-600 hover:text-primary-700 font-medium text-sm"
+                >
+                  Crear cuenta nueva
+                </Link>
+              </div>
+            </div>
           </CardContent>
         </Card>
       </div>

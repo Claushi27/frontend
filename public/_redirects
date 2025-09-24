@@ -1,0 +1,3 @@
+# Redirects for single-page applications (SPA)
+# This is required for React Router to work properly on Render
+/*    /index.html   200

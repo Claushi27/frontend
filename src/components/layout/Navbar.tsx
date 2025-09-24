@@ -12,21 +12,10 @@ const Navbar: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { itemCount } = useAppSelector((state) => state.cart);
-  const { isAuthenticated, user } = useAppSelector((state) => state.auth);
-
-  // Debug logging para investigar problema de auth
-  React.useEffect(() => {
-    console.log('=== NAVBAR DEBUG ===');
-    console.log('isAuthenticated:', isAuthenticated);
-    console.log('user objeto completo:', JSON.stringify(user, null, 2));
-    console.log('user.role:', user?.role);
-    console.log('user.roleId:', user?.roleId);
-    console.log('localStorage user:', localStorage.getItem('user'));
-    console.log('localStorage authToken:', localStorage.getItem('authToken'));
-    console.log('==================');
-  }, [isAuthenticated, user]);
+  const { isAuthenticated, user, loading } = useAppSelector((state) => state.auth);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = React.useState(false);
+
 
   const navigationItems = [
     { name: 'Inicio', href: ROUTES.HOME },
@@ -39,17 +28,10 @@ const Navbar: React.FC = () => {
 
   const handleLogout = async () => {
     try {
-      console.log('=== LOGOUT CLICKED ===');
-      console.log('Starting logout process...');
       await dispatch(logoutUser()).unwrap();
-      console.log('Logout dispatch successful');
-      dispatch(clearCart()); // También limpiamos el carrito al hacer logout
-      console.log('Cart cleared');
+      dispatch(clearCart());
       setIsUserMenuOpen(false);
-      console.log('User menu closed');
-      navigate(ROUTES.HOME); // Redirigir al inicio
-      console.log('Navigated to home');
-      console.log('===============');
+      navigate(ROUTES.HOME);
     } catch (error) {
       console.error('Error during logout:', error);
     }
@@ -58,7 +40,8 @@ const Navbar: React.FC = () => {
   // Cerrar menu cuando se hace click fuera
   React.useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (isUserMenuOpen) {
+      const target = event.target as HTMLElement;
+      if (isUserMenuOpen && !target.closest('[data-user-menu]')) {
         setIsUserMenuOpen(false);
       }
     };
@@ -129,7 +112,7 @@ const Navbar: React.FC = () => {
             </Link>
 
             {/* User Menu */}
-            <div className="relative">
+            <div className="relative" data-user-menu>
               {isAuthenticated ? (
                 <div className="relative">
                   <button
@@ -138,7 +121,7 @@ const Navbar: React.FC = () => {
                   >
                     <span className="text-sm text-gray-700 hidden sm:block">
                       {user?.username}
-                      {user?.role === 'admin' && (
+                      {(user?.role === 'admin' || user?.id_rol === 1 || user?.roleId === 1) && (
                         <span className="ml-1 px-2 py-0.5 bg-blue-100 text-blue-800 text-xs rounded">
                           Admin
                         </span>
@@ -149,7 +132,7 @@ const Navbar: React.FC = () => {
 
                   {isUserMenuOpen && (
                     <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 border">
-                      {user?.role === 'admin' && (
+                      {(user?.role === 'admin' || user?.id_rol === 1 || user?.roleId === 1) && (
                         <Link
                           to={ROUTES.ADMIN_DASHBOARD}
                           className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
@@ -170,12 +153,20 @@ const Navbar: React.FC = () => {
                   )}
                 </div>
               ) : (
-                <Link
-                  to={ROUTES.ADMIN_LOGIN}
-                  className="text-sm font-medium text-gray-700 hover:text-primary-600 transition-colors"
-                >
-                  Iniciar Sesión
-                </Link>
+                <div className="flex items-center space-x-4">
+                  <Link
+                    to={ROUTES.REGISTER}
+                    className="text-sm font-medium text-gray-700 hover:text-primary-600 transition-colors"
+                  >
+                    Registrarse
+                  </Link>
+                  <Link
+                    to={ROUTES.ADMIN_LOGIN}
+                    className="text-sm font-medium bg-primary-600 text-white px-3 py-1.5 rounded-md hover:bg-primary-700 transition-colors"
+                  >
+                    Iniciar Sesión
+                  </Link>
+                </div>
               )}
             </div>
 

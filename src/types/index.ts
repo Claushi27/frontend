@@ -22,6 +22,17 @@ export interface LoginCredentials {
   password: string;
 }
 
+export interface RegisterCredentials {
+  rut: string;
+  username: string;
+  nombres: string;
+  ap_paterno: string;
+  ap_materno?: string;
+  email: string;
+  telefono?: string;
+  password: string;
+}
+
 // Product Types
 export interface Product {
   id_producto: number;

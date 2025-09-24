@@ -1,4 +1,4 @@
-export const API_BASE_URL = 'http://localhost:3000/api';
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000/api';
 
 export const ROUTES = {
   HOME: '/',
@@ -6,6 +6,7 @@ export const ROUTES = {
   CART: '/carrito',
   CHECKOUT: '/checkout',
   ORDERS: '/pedidos',
+  REGISTER: '/registro',
   ADMIN_LOGIN: '/admin-login',
   ADMIN_DASHBOARD: '/admin',
   ADMIN_PRODUCTS: '/admin/productos',

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -18,6 +18,7 @@ import CartPage from '@/pages/CartPage';
 import CheckoutPage from '@/pages/CheckoutPage';
 import PaymentResultPage from '@/pages/PaymentResultPage';
 import AdminLoginPage from '@/pages/AdminLoginPage';
+import RegisterPage from '@/pages/RegisterPage';
 import AdminDashboard from '@/pages/AdminDashboard';
 import OrdersManagementPage from '@/pages/OrdersManagementPage';
 import OrderDetailPage from '@/pages/OrderDetailPage';
@@ -45,7 +46,8 @@ function App() {
           <Route path={ROUTES.CHECKOUT} element={<CheckoutPage />} />
           <Route path={ROUTES.PAYMENT_RESULT} element={<PaymentResultPage />} />
 
-          {/* Admin Routes */}
+          {/* Auth Routes */}
+          <Route path={ROUTES.REGISTER} element={<RegisterPage />} />
           <Route path={ROUTES.ADMIN_LOGIN} element={<AdminLoginPage />} />
           <Route
             path={ROUTES.ADMIN_DASHBOARD}
