@@ -81,14 +81,16 @@ const CheckoutPage: React.FC = () => {
 
       const pedidoResponse = await apiClient.post('/pedidos', pedidoData);
 
-      // El backend puede devolver directamente el pedido o con success/data
+      // El backend devuelve: {success: true, data: {pedido: {...}}}
       let id_pedido;
-      if (pedidoResponse.pedido) {
+      if (pedidoResponse.data && pedidoResponse.data.pedido) {
+        id_pedido = pedidoResponse.data.pedido.id_pedido;
+      } else if (pedidoResponse.pedido) {
         id_pedido = pedidoResponse.pedido.id_pedido;
       } else if (pedidoResponse.id_pedido) {
         id_pedido = pedidoResponse.id_pedido;
       } else {
-        throw new Error(pedidoResponse.message || 'Error al crear el pedido');
+        throw new Error('Error al obtener ID del pedido');
       }
 
       // 2. Iniciar transacción WebPay
